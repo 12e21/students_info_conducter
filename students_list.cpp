@@ -19,7 +19,7 @@ void Students_list::students_copy(Student* dest_student_p, Student source_studen
     (*dest_student_p).student_id=source_student.student_id;
 }
 //在末尾添加一个学生函数
-void Students_list::add_single_student(int student_id, std::string name, int college, int discipline, float GPA,
+void Students_list::add_single_student(int student_id, std::string name, std::string college, std::string discipline, float GPA,
                                        std::string phone_number, std::string identity_id){
 this->student_list[current_blank_index].student_id=student_id;
 this->student_list[current_blank_index].name=name;
@@ -33,8 +33,8 @@ this->current_blank_index++;
 //清空指定索引学生信息
 void Students_list::clear_single_student(int clear_index) {
     this->student_list[clear_index].student_id=0;
-    this->student_list[clear_index].college=0;
-    this->student_list[clear_index].discipline=0;
+    this->student_list[clear_index].college='0';
+    this->student_list[clear_index].discipline='0';
     this->student_list[clear_index].name="0";
     this->student_list[clear_index].GPA=0;
     this->student_list[clear_index].identity_id="0";

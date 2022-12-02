@@ -9,8 +9,8 @@ UI::~UI() =default;
 void UI::add_single_student_ui() {
     int student_id;
     std::string name;
-    int college;
-    int discipline;
+    std::string college;
+    std::string discipline;
     float GPA;
     std::string phone_number;
     std::string identity_id;
