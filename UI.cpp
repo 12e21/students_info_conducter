@@ -96,3 +96,34 @@ void UI::read_file_students_ui() {
     this->studentsList.read_all_students(file_path);
     std::cout<<"导入成功"<<std::endl;
 }
+void UI::change_single_student_ui() {
+    int student_id=0;
+    int change_index=0;
+    std::string name;
+    std::string college;
+    std::string discipline;
+    float GPA;
+    std::string phone_number;
+    std::string identity_id;
+
+    std::cout<<"正在使用修改单个学生信息功能"<<std::endl;
+    std::cout<<"请输入要修改的学生的学号"<<std::endl;
+    std::cin>>student_id;
+    change_index=this->studentsList.lookfor_index_from_studentID(student_id);
+    std::cout<<"请输入姓名"<<std::endl;
+    std::cin>>name;
+    std::cout<<"请输入学院"<<std::endl;
+    std::cin>>college;
+    std::cout<<"请输入专业"<<std::endl;
+    std::cin>>discipline;
+    std::cout<<"请输入GPA"<<std::endl;
+    std::cin>>GPA;
+    std::cout<<"请输入电话号码"<<std::endl;
+    std::cin>>phone_number;
+    std::cout<<"请输入身份证号"<<std::endl;
+    std::cin>>identity_id;
+    this->studentsList.change_single_student(change_index,student_id,name,college,
+                                             discipline,GPA,phone_number,identity_id);
+    std::cout<<"修改成功"<<std::endl;
+
+}

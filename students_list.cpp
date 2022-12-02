@@ -120,3 +120,16 @@ void Students_list::read_all_students(std::string file_path) {
     }
     infile.close();
 }
+//修改单个学生
+void Students_list::change_single_student(int change_index,int student_id, std::string name,
+                                          std::string college, std::string discipline, float GPA,
+                                          std::string phone_number, std::string identity_id) {
+    this->student_list[change_index].student_id=student_id;
+    this->student_list[change_index].name=name;
+    this->student_list[change_index].college=college;
+    this->student_list[change_index].discipline=discipline;
+    this->student_list[change_index].GPA=GPA;
+    this->student_list[change_index].phone_number=phone_number;
+    this->student_list[change_index].identity_id=identity_id;
+
+}

@@ -20,6 +20,7 @@ public:
     void delete_single_student_ui();
     void write_all_students_ui();
     void read_file_students_ui();
+    void change_single_student_ui();
 };
 
 

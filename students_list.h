@@ -24,6 +24,9 @@ public:
     void write_all_students(std::string file_path);
     void read_single_student(std::ifstream* infile_p);
     void read_all_students(std::string file_path);
+    void change_single_student(int change_index,int student_id, std::string name,
+                               std::string college, std::string discipline, float GPA,
+                               std::string phone_number, std::string identity_id);
 };
 
 #endif //STUDENT_INFO_CONDUCT_STUDENTS_LIST_H
