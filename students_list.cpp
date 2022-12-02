@@ -1,6 +1,5 @@
 
 #include "students_list.h"
-#include "iostream"
 //构造函数
 Students_list::Students_list() {
     this->current_blank_index=0;
@@ -69,4 +68,55 @@ int Students_list::lookfor_index_from_studentID(int studentID) {
         }
     }
     return i;
+}
+//将单一学生信息写入文件
+void Students_list::write_single_student(std::ofstream *outfile_p,int student_index) {
+    *outfile_p<<this->student_list[student_index].student_id<<std::endl;
+    *outfile_p<<this->student_list[student_index].name<<std::endl;
+    *outfile_p<<this->student_list[student_index].discipline<<std::endl;
+    *outfile_p<<this->student_list[student_index].college<<std::endl;
+    *outfile_p<<this->student_list[student_index].GPA<<std::endl;
+    *outfile_p<<this->student_list[student_index].phone_number<<std::endl;
+    *outfile_p<<this->student_list[student_index].identity_id<<std::endl;
+}
+//将全部学生信息写入文件
+void Students_list::write_all_students(std::string file_path) {
+    std::ofstream outfile;
+    outfile.open(file_path,std::ios::out |std::ios::trunc);
+    outfile<<this->current_blank_index<<std::endl;
+    for(int i=0;i<current_blank_index;i++)
+    {
+        this->write_single_student(&outfile,i);
+    }
+    outfile.close();
+}
+//从文件导入单一学生信息到程序
+void Students_list::read_single_student(std::ifstream *infile_p) {
+    int student_id;
+    std::string name;
+    std::string college;
+    std::string discipline;
+    float GPA;
+    std::string phone_number;
+    std::string identity_id;
+    *infile_p>>student_id;
+    *infile_p>>name;
+    *infile_p>>discipline;
+    *infile_p>>college;
+    *infile_p>>GPA;
+    *infile_p>>phone_number;
+    *infile_p>>identity_id;
+    this->add_single_student(student_id,name,college,discipline,GPA,phone_number,identity_id);
+}
+//从文件导入所有学生信息到程序
+void Students_list::read_all_students(std::string file_path) {
+    std::ifstream infile;
+    infile.open(file_path,std::ios::in);
+    int total_students_count=0;
+    infile>>total_students_count;
+    for(int i=0;i<total_students_count;i++)
+    {
+        read_single_student(&infile);
+    }
+    infile.close();
 }

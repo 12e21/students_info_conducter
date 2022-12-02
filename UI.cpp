@@ -47,7 +47,6 @@ void UI::delete_single_student_ui() {
     this->studentsList.delet_single_student(del_index);
     std::cout<<"已成功删除改学生"<<std::endl;
 }
-
 void UI::show_single_student(int show_index) {
     std::cout<<"学号: "<<this->studentsList.student_list[show_index].student_id<<std::endl;
     std::cout<<"姓名: "<<this->studentsList.student_list[show_index].name<<std::endl;
@@ -80,4 +79,20 @@ void UI::show_all_student_ui()
     {
         show_single_student(i);
     }
+}
+void UI::write_all_students_ui() {
+    std::string file_path;
+    std::cout<<"正在使用将全部学生信息导出为文件功能"<<std::endl;
+    std::cout<<"请输入导出文件路径"<<std::endl;
+    std::cin>>file_path;
+    this->studentsList.write_all_students(file_path);
+    std::cout<<"导出成功"<<std::endl;
+}
+void UI::read_file_students_ui() {
+    std::string file_path;
+    std::cout<<"正在使用将学生信息文件导入功能"<<std::endl;
+    std::cout<<"请输入导入文件的路径"<<std::endl;
+    std::cin>>file_path;
+    this->studentsList.read_all_students(file_path);
+    std::cout<<"导入成功"<<std::endl;
 }
