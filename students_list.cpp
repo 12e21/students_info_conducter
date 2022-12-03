@@ -133,3 +133,18 @@ void Students_list::change_single_student(int change_index,int student_id, std::
     this->student_list[change_index].identity_id=identity_id;
 
 }
+//统计某学院学生的个数和学号
+void Students_list::statistic_college(std::string college,int* college_students_count_p,int* college_student_ids) {
+    int currrent_college_student_ids_index=0;
+    int college_students_count=0;
+    for(int i=0;i<this->current_blank_index;i++)
+    {
+        if(this->student_list[i].college==college)
+        {
+            college_student_ids[currrent_college_student_ids_index]=this->student_list[i].student_id;
+            currrent_college_student_ids_index++;
+            college_students_count++;
+        }
+    }
+    *college_students_count_p=college_students_count;
+}

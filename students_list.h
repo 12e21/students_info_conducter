@@ -27,6 +27,7 @@ public:
     void change_single_student(int change_index,int student_id, std::string name,
                                std::string college, std::string discipline, float GPA,
                                std::string phone_number, std::string identity_id);
+    void statistic_college(std::string college,int* college_students_count_p,int* college_student_ids);
 };
 
 #endif //STUDENT_INFO_CONDUCT_STUDENTS_LIST_H

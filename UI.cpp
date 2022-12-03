@@ -127,3 +127,20 @@ void UI::change_single_student_ui() {
     std::cout<<"修改成功"<<std::endl;
 
 }
+void UI::statistic_college_students_ui() {
+    std::string college;
+    int college_students_ids[100]={0};
+    int college_students_count=0;
+    std::cout<<"正在使用统计某学院学生人数及学号功能"<<std::endl;
+    std::cout<<"请输入要统计的学院:"<<std::endl;
+    std::cin>>college;
+    this->studentsList.statistic_college(college,&college_students_count,
+                                         college_students_ids);
+    std::cout<<college<<"共有"<<college_students_count<<"人"<<std::endl;
+    std::cout<<"学号如下:"<<std::endl;
+    for(int i=0;i<college_students_count;i++)
+    {
+        std::cout<<*(college_students_ids+i)<<std::endl;
+    }
+    std::cout<<"统计完毕"<<std::endl;
+}
