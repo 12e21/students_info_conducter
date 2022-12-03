@@ -148,3 +148,31 @@ void Students_list::statistic_college(std::string college,int* college_students_
     }
     *college_students_count_p=college_students_count;
 }
+//将学生按GPA排名
+void Students_list::sort_GPA(int *student_ids_to_sort, int *sort_students_count) {
+    float students_GPAs[this->current_blank_index];
+    *sort_students_count=this->current_blank_index;
+    for(int i=0;i<this->current_blank_index;i++)
+    {
+        student_ids_to_sort[i]=this->student_list[i].student_id;
+        students_GPAs[i]=this->student_list[i].GPA;
+    }
+    for(int i=0;i<this->current_blank_index;i++)
+    {
+        for(int j=i;j<this->current_blank_index;j++)
+        {
+            if(students_GPAs[i]<students_GPAs[j])
+            {
+                float middle_num_gpa=0;
+                middle_num_gpa=students_GPAs[i];
+                students_GPAs[i]=students_GPAs[j];
+                students_GPAs[j]=middle_num_gpa;
+
+                int middle_num_id=0;
+                middle_num_id=student_ids_to_sort[i];
+                student_ids_to_sort[i]=student_ids_to_sort[j];
+                student_ids_to_sort[j]=middle_num_id;
+            }
+        }
+    }
+}

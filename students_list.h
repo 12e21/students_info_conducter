@@ -28,6 +28,7 @@ public:
                                std::string college, std::string discipline, float GPA,
                                std::string phone_number, std::string identity_id);
     void statistic_college(std::string college,int* college_students_count_p,int* college_student_ids);
+    void sort_GPA(int* student_ids_to_sort,int* sort_students_count);
 };
 
 #endif //STUDENT_INFO_CONDUCT_STUDENTS_LIST_H

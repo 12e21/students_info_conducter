@@ -22,6 +22,7 @@ public:
     void read_file_students_ui();
     void change_single_student_ui();
     void statistic_college_students_ui();
+    void sort_GPA_ui();
 };
 
 

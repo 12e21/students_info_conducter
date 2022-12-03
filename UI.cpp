@@ -144,3 +144,17 @@ void UI::statistic_college_students_ui() {
     }
     std::cout<<"统计完毕"<<std::endl;
 }
+
+void UI::sort_GPA_ui() {
+    int sort_students_count=0;
+    int sort_student_ids[100];
+    std::cout<<"正在使用按GPA排序功能"<<std::endl;
+    this->studentsList.sort_GPA(sort_student_ids,&sort_students_count);
+    std::cout<<"以下学号按GPA由高到低排列"<<std::endl;
+    for(int i=0;i<sort_students_count;i++)
+    {
+        std::cout<<sort_student_ids[i]<<std::endl;
+    }
+    std::cout<<"排序完成"<<std::endl;
+
+}
