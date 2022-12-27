@@ -55,6 +55,7 @@ void UI::show_single_student(int show_index) {
     std::cout<<"GPA: "<<this->studentsList.student_list[show_index].GPA<<std::endl;
     std::cout<<"电话: "<<this->studentsList.student_list[show_index].phone_number<<std::endl;
     std::cout<<"身份证号: "<<this->studentsList.student_list[show_index].identity_id<<std::endl;
+    std::cout<<std::endl;
 
 }
 void UI::show_single_student_ui() {
@@ -144,7 +145,6 @@ void UI::statistic_college_students_ui() {
     }
     std::cout<<"统计完毕"<<std::endl;
 }
-
 void UI::sort_GPA_ui() {
     int sort_students_count=0;
     int sort_student_ids[100];
@@ -157,4 +157,55 @@ void UI::sort_GPA_ui() {
     }
     std::cout<<"排序完成"<<std::endl;
 
+}
+
+void UI::main_program_ui() {
+    std::cout<<"欢迎使用学生信息管理系统"<<std::endl;
+    while (true)
+    {
+        int user_choice=0;
+        std::cout<<"请选择功能:"<<std::endl;
+        std::cout<<"0. "<<"退出"<<std::endl;
+        std::cout<<"1. "<<"添加单个学生信息"<<std::endl;
+        std::cout<<"2. "<<"删除单个学生信息"<<std::endl;
+        std::cout<<"3. "<<"显示单个学生信息"<<std::endl;
+        std::cout<<"4. "<<"显示全部学生信息"<<std::endl;
+        std::cout<<"5. "<<"修改单个学生信息"<<std::endl;
+        std::cout<<"6. "<<"统计某个学院的学生"<<std::endl;
+        std::cout<<"7. "<<"将学生按GPA排序"<<std::endl;
+        std::cout<<"8. "<<"把当前学生信息存入文件"<<std::endl;
+        std::cout<<"9. "<<"将学生信息文件读入系统"<<std::endl;
+        std::cin>>user_choice;
+        switch (user_choice) {
+            case 0:
+                return;
+            case 1:
+                this->add_single_student_ui();
+                break;
+            case 2:
+                this->delete_single_student_ui();
+                break;
+            case 3:
+                this->show_single_student_ui();
+                break;
+            case 4:
+                this->show_all_student_ui();
+                break;
+            case 5:
+                this->change_single_student_ui();
+                break;
+            case 6:
+                this->statistic_college_students_ui();
+                break;
+            case 7:
+                this->sort_GPA_ui();
+                break;
+            case 8:
+                this->write_all_students_ui();
+                break;
+            case 9:
+                this->read_file_students_ui();
+                break;
+        }
+    }
 }
